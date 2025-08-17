@@ -1,6 +1,7 @@
 import { Navigation } from '@/components/Navigation';
 import { Hero } from '@/components/Hero';
 import { TourCard } from '@/components/TourCard';
+import { ContactSection } from '@/components/ContactSection';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Star, Users, Award, Shield, Heart, Phone, Mail, MapPin, Facebook, Instagram, Youtube } from 'lucide-react';
@@ -248,27 +249,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Contact CTA */}
-      <section className="py-20 sacred-gradient">
-        <div className="container mx-auto px-4 text-center">
-          <div className="max-w-3xl mx-auto text-white">
-            <h2 className="text-4xl font-bold mb-6">Ready for Your Next Adventure?</h2>
-            <p className="text-xl mb-8 opacity-90">
-              Let us craft your perfect journey. Whether it's a spiritual pilgrimage or an epic adventure, we're here to make it unforgettable.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-white text-primary hover:bg-white/90">
-                <Phone className="mr-2 h-5 w-5" />
-                Call Us Now
-              </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary">
-                <Mail className="mr-2 h-5 w-5" />
-                Send Inquiry
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Contact Section */}
+      <ContactSection />
 
       {/* Footer */}
       <footer className="bg-foreground text-white py-12">
