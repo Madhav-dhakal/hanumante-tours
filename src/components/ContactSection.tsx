@@ -13,7 +13,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
-import { Mail, Phone, MapPin, Github } from "lucide-react";
+import { Mail, Phone, MapPin, MessageCircle, Send, Clock } from "lucide-react";
 
 const contactFormSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -42,10 +42,15 @@ export const ContactSection = () => {
   };
 
   return (
-    <section className="py-20 bg-background">
-      <div className="container mx-auto px-4">
+    <section className="py-20 bg-background relative overflow-hidden">
+      {/* Background decorations */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5"></div>
+      <div className="absolute top-20 left-10 w-32 h-32 bg-sacred-gold/10 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-20 right-10 w-40 h-40 bg-primary/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-5xl font-bold mb-6">
             Get In <span className="text-primary">Touch</span>
           </h2>
@@ -58,7 +63,7 @@ export const ContactSection = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-7xl mx-auto">
           {/* Contact Information */}
-          <div>
+          <div className="animate-fade-in delay-200">
             <h3 className="text-3xl font-bold mb-6 text-foreground">Let's Connect</h3>
             <p className="text-lg text-muted-foreground mb-8">
               Whether you're looking to build a meaningful spiritual presence, need creative
@@ -68,8 +73,8 @@ export const ContactSection = () => {
 
             <div className="space-y-6">
               {/* Email */}
-              <div className="flex items-center space-x-4 p-4 travel-card">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+              <div className="flex items-center space-x-4 p-4 travel-card hover-scale cursor-pointer group">
+                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                   <Mail className="h-6 w-6 text-primary" />
                 </div>
                 <div>
@@ -79,8 +84,8 @@ export const ContactSection = () => {
               </div>
 
               {/* Phone */}
-              <div className="flex items-center space-x-4 p-4 travel-card">
-                <div className="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center">
+              <div className="flex items-center space-x-4 p-4 travel-card hover-scale cursor-pointer group">
+                <div className="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center group-hover:bg-secondary/20 transition-colors">
                   <Phone className="h-6 w-6 text-secondary" />
                 </div>
                 <div>
@@ -89,9 +94,23 @@ export const ContactSection = () => {
                 </div>
               </div>
 
+              {/* WhatsApp */}
+              <div className="flex items-center space-x-4 p-4 travel-card hover-scale cursor-pointer group bg-green-50/50 border-green-200/50">
+                <div className="w-12 h-12 bg-green-500/10 rounded-lg flex items-center justify-center group-hover:bg-green-500/20 transition-colors">
+                  <MessageCircle className="h-6 w-6 text-green-600" />
+                </div>
+                <div className="flex-1">
+                  <h4 className="font-semibold text-foreground">WhatsApp</h4>
+                  <p className="text-muted-foreground">+977 9841234567</p>
+                </div>
+                <Button size="sm" className="bg-green-500 hover:bg-green-600 text-white">
+                  Chat Now
+                </Button>
+              </div>
+
               {/* Location */}
-              <div className="flex items-center space-x-4 p-4 travel-card">
-                <div className="w-12 h-12 bg-sacred-gold/10 rounded-lg flex items-center justify-center">
+              <div className="flex items-center space-x-4 p-4 travel-card hover-scale cursor-pointer group">
+                <div className="w-12 h-12 bg-sacred-gold/10 rounded-lg flex items-center justify-center group-hover:bg-sacred-gold/20 transition-colors">
                   <MapPin className="h-6 w-6 text-sacred-gold" />
                 </div>
                 <div>
@@ -100,21 +119,34 @@ export const ContactSection = () => {
                 </div>
               </div>
 
-              {/* Website */}
+              {/* Business Hours */}
               <div className="flex items-center space-x-4 p-4 travel-card">
                 <div className="w-12 h-12 bg-muted/50 rounded-lg flex items-center justify-center">
-                  <Github className="h-6 w-6 text-muted-foreground" />
+                  <Clock className="h-6 w-6 text-muted-foreground" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-foreground">Website</h4>
-                  <p className="text-muted-foreground">hanumanteadventures.com</p>
+                  <h4 className="font-semibold text-foreground">Business Hours</h4>
+                  <p className="text-muted-foreground">Mon-Fri: 9:00 AM - 6:00 PM</p>
+                  <p className="text-sm text-muted-foreground">Sat: 9:00 AM - 4:00 PM</p>
                 </div>
               </div>
+            </div>
+
+            {/* Quick Action Buttons */}
+            <div className="mt-8 flex flex-col sm:flex-row gap-4">
+              <Button className="bg-green-500 hover:bg-green-600 text-white flex-1">
+                <MessageCircle className="mr-2 h-4 w-4" />
+                WhatsApp Chat
+              </Button>
+              <Button variant="outline" className="flex-1">
+                <Phone className="mr-2 h-4 w-4" />
+                Call Now
+              </Button>
             </div>
           </div>
 
           {/* Contact Form */}
-          <div>
+          <div className="animate-fade-in delay-400">
             <h3 className="text-3xl font-bold mb-6 text-foreground">Send a Message</h3>
             
             <Form {...form}>
@@ -183,10 +215,12 @@ export const ContactSection = () => {
 
                 <Button 
                   type="submit" 
-                  className="w-full bg-primary hover:bg-primary/90"
+                  className="w-full bg-primary hover:bg-primary/90 group"
                   size="lg"
+                  disabled={form.formState.isSubmitting}
                 >
-                  Send Message
+                  <Send className="mr-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  {form.formState.isSubmitting ? "Sending..." : "Send Message"}
                 </Button>
               </form>
             </Form>
