@@ -35,11 +35,11 @@ export const Navigation = () => {
             <div className="flex items-center space-x-6">
               <div className="flex items-center">
                 <Phone className="mr-2 h-4 w-4" />
-                <span>+977 9841234567</span>
+                <span>+977 9842290039 / 9842290280</span>
               </div>
               <div className="flex items-center">
                 <Mail className="mr-2 h-4 w-4" />
-                <span>info@hanumanteadventures.com</span>
+                <span>hanumantetours@gmail.com</span>
               </div>
             </div>
             <div className="flex items-center space-x-4">

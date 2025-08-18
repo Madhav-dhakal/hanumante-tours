@@ -28,7 +28,7 @@ const featuredTours = [
   },
   {
     title: "Mansarovar Yatra",
-    image: muktinathTemple,
+    image: "/lovable-uploads/79fe9603-3a91-4169-bac4-3fceb2219bdd.png",
     duration: "12 Days",
     groupSize: "8-15 People",
     price: "$1,599",
