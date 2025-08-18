@@ -13,6 +13,7 @@ import thailandBeach from '@/assets/thailand-beach.jpg';
 import helicopterTour from '@/assets/helicopter-tour.jpg';
 import pashupatinath from '@/assets/pashupatinath.jpg';
 import annapurnaBaseCamp from '@/assets/annapurna-base-camp.jpg';
+import luxuryHotels from '@/assets/luxury-hotels.jpg';
 
 const featuredTours = [
   {
@@ -196,8 +197,8 @@ const Index = () => {
               {/* Hotels & Accommodation Image */}
               <div className="mb-12 rounded-lg overflow-hidden shadow-2xl">
                 <img
-                  src="/lovable-uploads/c7030ee6-2f03-412f-ada1-302969db077c.png"
-                  alt="Popular Hotels & Rooms - Quality accommodation for your journey"
+                  src={luxuryHotels}
+                  alt="Quality Hotels & Accommodations - Comfortable stays for your journey"
                   className="w-full h-64 object-cover"
                 />
               </div>
@@ -229,6 +230,44 @@ const Index = () => {
                 <h3 className="text-xl font-semibold mb-4">Quality Accommodation</h3>
                 <p className="text-white/90">
                   Carefully selected hotels and rooms ensure comfort and authentic local experiences throughout your journey.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Additional Why Choose Us Section */}
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto text-center">
+            <h2 className="text-4xl font-bold mb-12 text-foreground">Our Commitment to Excellence</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="travel-card p-6 text-center">
+                <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Award className="h-8 w-8 text-primary" />
+                </div>
+                <h3 className="text-xl font-semibold mb-4 text-foreground">Award-Winning Service</h3>
+                <p className="text-muted-foreground">
+                  Recognized for excellence in travel services with multiple industry awards and certifications.
+                </p>
+              </div>
+              <div className="travel-card p-6 text-center">
+                <div className="w-16 h-16 bg-sacred-gold/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Phone className="h-8 w-8 text-sacred-gold" />
+                </div>
+                <h3 className="text-xl font-semibold mb-4 text-foreground">24/7 Support</h3>
+                <p className="text-muted-foreground">
+                  Round-the-clock assistance during your journey with dedicated support team available anytime.
+                </p>
+              </div>
+              <div className="travel-card p-6 text-center">
+                <div className="w-16 h-16 bg-secondary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <MapPin className="h-8 w-8 text-secondary" />
+                </div>
+                <h3 className="text-xl font-semibold mb-4 text-foreground">Local Expertise</h3>
+                <p className="text-muted-foreground">
+                  Deep understanding of local culture, customs, and hidden treasures for authentic experiences.
                 </p>
               </div>
             </div>
