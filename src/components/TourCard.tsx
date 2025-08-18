@@ -40,7 +40,7 @@ export const TourCard: React.FC<TourCardProps> = ({
   featured = false
 }) => {
   return (
-    <div className={`travel-card group relative overflow-hidden ${featured ? 'md:col-span-2 md:row-span-2' : ''}`}>
+    <div className={`travel-card group relative overflow-hidden ${featured ? 'md:col-span-1 md:row-span-1' : ''}`}>
       {/* Featured Badge */}
       {featured && (
         <div className="absolute top-4 left-4 z-10">
@@ -51,7 +51,7 @@ export const TourCard: React.FC<TourCardProps> = ({
       )}
 
       {/* Image */}
-      <div className={`relative overflow-hidden ${featured ? 'h-80' : 'h-48'}`}>
+      <div className={`relative overflow-hidden ${featured ? 'h-64' : 'h-48'}`}>
         <img
           src={image}
           alt={title}
@@ -74,7 +74,7 @@ export const TourCard: React.FC<TourCardProps> = ({
       </div>
 
       {/* Content */}
-      <div className="p-6">
+      <div className="p-4">
         <div className="flex items-start justify-between mb-3">
           <h3 className={`font-bold text-foreground group-hover:text-primary transition-smooth ${featured ? 'text-xl' : 'text-lg'}`}>
             {title}
@@ -91,7 +91,7 @@ export const TourCard: React.FC<TourCardProps> = ({
         </div>
 
         {/* Tour Details */}
-        <div className="flex items-center justify-between mb-6 text-sm text-muted-foreground">
+        <div className="flex items-center justify-between mb-4 text-sm text-muted-foreground">
           <div className="flex items-center space-x-1">
             <Clock className="h-4 w-4" />
             <span>{duration}</span>
