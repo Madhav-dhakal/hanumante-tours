@@ -189,9 +189,21 @@ const Index = () => {
       {/* Why Choose Us */}
       <section className="py-20 mountain-gradient">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center text-white">
-            <h2 className="text-4xl font-bold mb-12">Why Choose Hanumante Adventures?</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center text-white mb-12">
+              <h2 className="text-4xl font-bold mb-8">Why Choose Hanumante Adventures?</h2>
+              
+              {/* Hotels & Accommodation Image */}
+              <div className="mb-12 rounded-lg overflow-hidden shadow-2xl">
+                <img
+                  src="/lovable-uploads/c7030ee6-2f03-412f-ada1-302969db077c.png"
+                  alt="Popular Hotels & Rooms - Quality accommodation for your journey"
+                  className="w-full h-64 object-cover"
+                />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-white text-center">
               <div className="text-center">
                 <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Users className="h-8 w-8 text-white" />
@@ -214,9 +226,9 @@ const Index = () => {
                 <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Heart className="h-8 w-8 text-white" />
                 </div>
-                <h3 className="text-xl font-semibold mb-4">Personalized Service</h3>
+                <h3 className="text-xl font-semibold mb-4">Quality Accommodation</h3>
                 <p className="text-white/90">
-                  Every journey is tailored to your interests, pace, and spiritual or adventure goals.
+                  Carefully selected hotels and rooms ensure comfort and authentic local experiences throughout your journey.
                 </p>
               </div>
             </div>
