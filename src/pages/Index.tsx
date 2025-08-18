@@ -17,12 +17,23 @@ import annapurnaBaseCamp from '@/assets/annapurna-base-camp.jpg';
 const featuredTours = [
   {
     title: "Muktinath Sacred Yatra",
-    image: muktinathTemple,
+    image: "/lovable-uploads/885a2ad3-f62f-44cd-a4c7-52a8a0089fa3.png",
     duration: "7 Days",
     groupSize: "10-15 People",
     price: "$899",
     rating: 4.9,
     location: "Muktinath, Nepal",
+    category: "pilgrimage" as const,
+    featured: true
+  },
+  {
+    title: "Mansarovar Yatra",
+    image: muktinathTemple,
+    duration: "12 Days",
+    groupSize: "8-15 People",
+    price: "$1,599",
+    rating: 4.9,
+    location: "Mount Kailash, Tibet",
     category: "pilgrimage" as const,
     featured: true
   },
@@ -301,11 +312,11 @@ const Index = () => {
                 </div>
                 <div className="flex items-center">
                   <Phone className="h-5 w-5 mr-2" />
-                  <span>+977 9841234567</span>
+                  <span>+977 9842290039 / 9842290280</span>
                 </div>
                 <div className="flex items-center">
                   <Mail className="h-5 w-5 mr-2" />
-                  <span>info@hanumanteadventures.com</span>
+                  <span>hanumantetours@gmail.com</span>
                 </div>
               </div>
             </div>

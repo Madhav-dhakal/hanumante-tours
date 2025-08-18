@@ -79,7 +79,7 @@ export const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground">Email</h4>
-                  <p className="text-muted-foreground">info@hanumanteadventures.com</p>
+                  <p className="text-muted-foreground">hanumantetours@gmail.com</p>
                 </div>
               </div>
 
@@ -90,7 +90,7 @@ export const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground">Phone</h4>
-                  <p className="text-muted-foreground">+977 9841234567</p>
+                  <p className="text-muted-foreground">+977 9842290039 / 9842290280</p>
                 </div>
               </div>
 
@@ -101,7 +101,7 @@ export const ContactSection = () => {
                 </div>
                 <div className="flex-1">
                   <h4 className="font-semibold text-foreground">WhatsApp</h4>
-                  <p className="text-muted-foreground">+977 9841234567</p>
+                  <p className="text-muted-foreground">+977 9842290039 / 9842290280</p>
                 </div>
                 <Button size="sm" className="bg-green-500 hover:bg-green-600 text-white">
                   Chat Now
