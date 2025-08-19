@@ -119,7 +119,7 @@ const testimonials = [
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background" id="top">
       <Navigation />
       <Hero />
       
@@ -511,7 +511,9 @@ const Index = () => {
       </section>
 
       {/* Contact Section */}
-      <ContactSection />
+      <div id="contact">
+        <ContactSection />
+      </div>
 
       {/* Footer */}
       <footer className="bg-foreground text-white py-12">

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X, Phone, Mail } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 
 const navItems = [
   { name: 'Home', href: '/' },
@@ -25,6 +26,20 @@ const navItems = [
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const location = useLocation();
+
+  const scrollToSection = (sectionId: string) => {
+    if (location.pathname !== '/') {
+      // If not on home page, navigate to home first then scroll
+      window.location.href = `/#${sectionId}`;
+      return;
+    }
+    
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <nav className="absolute top-0 z-50 w-full">
@@ -75,24 +90,40 @@ export const Navigation = () => {
                   onMouseEnter={() => item.dropdown && setActiveDropdown(item.name)}
                   onMouseLeave={() => setActiveDropdown(null)}
                 >
-                  <a
-                    href={item.href}
-                    className="text-foreground hover:text-primary transition-smooth font-medium"
-                  >
-                    {item.name}
-                  </a>
+                  {item.name === 'Home' ? (
+                    <button
+                      onClick={() => scrollToSection('top')}
+                      className="text-foreground hover:text-primary transition-smooth font-medium"
+                    >
+                      {item.name}
+                    </button>
+                  ) : item.name === 'Contact' ? (
+                    <button
+                      onClick={() => scrollToSection('contact')}
+                      className="text-foreground hover:text-primary transition-smooth font-medium"
+                    >
+                      {item.name}
+                    </button>
+                  ) : (
+                    <Link
+                      to={item.href}
+                      className="text-foreground hover:text-primary transition-smooth font-medium"
+                    >
+                      {item.name}
+                    </Link>
+                  )}
                   
                   {item.dropdown && activeDropdown === item.name && (
-                    <div className="absolute left-0 top-full mt-2 w-64 rounded-lg bg-white shadow-travel border">
+                    <div className="absolute left-0 top-full mt-2 w-64 rounded-lg bg-white shadow-travel border z-50">
                       <div className="py-2">
                         {item.dropdown.map((subItem) => (
-                          <a
+                          <Link
                             key={subItem}
-                            href="#"
+                            to="/tours"
                             className="block px-4 py-2 text-sm hover:bg-accent hover:text-primary transition-smooth"
                           >
                             {subItem}
-                          </a>
+                          </Link>
                         ))}
                       </div>
                     </div>
@@ -131,14 +162,38 @@ export const Navigation = () => {
             <div className="container mx-auto px-4 py-4">
               <div className="flex flex-col space-y-4">
                 {navItems.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    className="text-foreground hover:text-primary transition-smooth font-medium"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {item.name}
-                  </a>
+                  item.name === 'Home' ? (
+                    <button
+                      key={item.name}
+                      onClick={() => {
+                        scrollToSection('top');
+                        setIsOpen(false);
+                      }}
+                      className="text-foreground hover:text-primary transition-smooth font-medium text-left"
+                    >
+                      {item.name}
+                    </button>
+                  ) : item.name === 'Contact' ? (
+                    <button
+                      key={item.name}
+                      onClick={() => {
+                        scrollToSection('contact');
+                        setIsOpen(false);
+                      }}
+                      className="text-foreground hover:text-primary transition-smooth font-medium text-left"
+                    >
+                      {item.name}
+                    </button>
+                  ) : (
+                    <Link
+                      key={item.name}
+                      to={item.href}
+                      className="text-foreground hover:text-primary transition-smooth font-medium"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
+                  )
                 ))}
                 <div className="pt-4 border-t flex flex-col space-y-2">
                   <Button variant="outline" size="sm">
