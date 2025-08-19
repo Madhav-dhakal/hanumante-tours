@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X, Phone, Mail } from 'lucide-react';
-import hanumanteLogoImg from '@/assets/hanumante-logo.png';
 
 const navItems = [
   { name: 'Home', href: '/' },
@@ -57,13 +56,13 @@ export const Navigation = () => {
             {/* Logo */}
             <div className="flex items-center space-x-2">
               <img 
-                src={hanumanteLogoImg}
-                alt="Hanumante Adventures Logo" 
-                className="h-12 w-12 rounded-full object-cover"
+                src="/lovable-uploads/2df12698-9722-4578-8439-376d8f8dfa62.png"
+                alt="Hanumante Tours & Travels Logo" 
+                className="h-12 w-12 object-contain"
               />
               <div>
                 <h1 className="text-xl font-bold text-primary">Hanumante</h1>
-                <p className="text-xs text-muted-foreground">Adventures</p>
+                <p className="text-xs text-muted-foreground">Tours & Travels</p>
               </div>
             </div>
 
