@@ -4,7 +4,7 @@ import { TourCard } from '@/components/TourCard';
 import { ContactSection } from '@/components/ContactSection';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Star, Users, Award, Shield, Heart, Phone, Mail, MapPin, Facebook, Instagram, Youtube } from 'lucide-react';
+import { Star, Users, Award, Shield, Heart, Phone, Mail, MapPin, Facebook, Instagram, Youtube, Mountain, Compass, Camera, Globe } from 'lucide-react';
 
 // Import tour images
 import muktinathTemple from '@/assets/muktinath-temple.jpg';
@@ -368,51 +368,69 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Why Choose Us */}
-      <section className="py-20 mountain-gradient">
+      {/* Travel Experiences */}
+      <section className="py-20 bg-gradient-to-br from-primary/5 to-secondary/5">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <div className="text-center text-white mb-12">
-              <h2 className="text-4xl font-bold mb-8">Why Choose Hanumante Adventures?</h2>
-              
-              {/* Hotels & Accommodation Image */}
-              <div className="mb-12 rounded-lg overflow-hidden shadow-2xl">
-                <img
-                  src={luxuryHotels}
-                  alt="Quality Hotels & Accommodations - Comfortable stays for your journey"
-                  className="w-full h-64 object-cover"
-                />
+            <div className="text-center mb-12">
+              <Badge className="mb-4 bg-primary text-white">
+                Adventure Awaits
+              </Badge>
+              <h2 className="text-4xl font-bold mb-6 text-foreground">Unforgettable Travel Experiences</h2>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                From spiritual pilgrimages to adrenaline-pumping adventures, discover experiences that will transform your perspective and create memories for a lifetime.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="travel-card p-6 text-center hover-scale">
+                <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Mountain className="h-8 w-8 text-primary" />
+                </div>
+                <h3 className="text-lg font-semibold mb-3 text-foreground">Mountain Trekking</h3>
+                <p className="text-muted-foreground text-sm">
+                  Conquer majestic peaks and witness breathtaking sunrise views from the world's highest mountains.
+                </p>
+              </div>
+
+              <div className="travel-card p-6 text-center hover-scale">
+                <div className="w-16 h-16 bg-sacred-gold/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Compass className="h-8 w-8 text-sacred-gold" />
+                </div>
+                <h3 className="text-lg font-semibold mb-3 text-foreground">Sacred Journeys</h3>
+                <p className="text-muted-foreground text-sm">
+                  Experience spiritual awakening through ancient temples and sacred sites across the Himalayas.
+                </p>
+              </div>
+
+              <div className="travel-card p-6 text-center hover-scale">
+                <div className="w-16 h-16 bg-secondary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Camera className="h-8 w-8 text-secondary" />
+                </div>
+                <h3 className="text-lg font-semibold mb-3 text-foreground">Photography Tours</h3>
+                <p className="text-muted-foreground text-sm">
+                  Capture stunning landscapes and cultural moments with expert guidance and exclusive access.
+                </p>
+              </div>
+
+              <div className="travel-card p-6 text-center hover-scale">
+                <div className="w-16 h-16 bg-accent/40 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Globe className="h-8 w-8 text-accent-foreground" />
+                </div>
+                <h3 className="text-lg font-semibold mb-3 text-foreground">Cultural Immersion</h3>
+                <p className="text-muted-foreground text-sm">
+                  Live like a local and discover authentic traditions, cuisine, and customs of remote communities.
+                </p>
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-white text-center">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Users className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-xl font-semibold mb-4">Expert Local Guides</h3>
-                <p className="text-white/90">
-                  Our experienced guides are passionate locals who know every trail, temple, and hidden gem.
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Shield className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-xl font-semibold mb-4">Safety First</h3>
-                <p className="text-white/90">
-                  Comprehensive insurance, emergency protocols, and safety equipment for worry-free adventures.
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Heart className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-xl font-semibold mb-4">Quality Accommodation</h3>
-                <p className="text-white/90">
-                  Carefully selected hotels and rooms ensure comfort and authentic local experiences throughout your journey.
-                </p>
-              </div>
+            <div className="text-center mt-12">
+              <Button className="bg-primary hover:bg-primary-dark mr-4" size="lg">
+                Explore Experiences
+              </Button>
+              <Button variant="outline" size="lg">
+                Plan Custom Adventure
+              </Button>
             </div>
           </div>
         </div>
