@@ -187,6 +187,187 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Popular Hotels & Rooms */}
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <Badge className="mb-4 bg-primary text-white">
+              Accommodation
+            </Badge>
+            <h2 className="text-4xl font-bold mb-6">Popular Hotels & Rooms</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Carefully selected accommodations for your perfect stay
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 max-w-7xl mx-auto">
+            {/* Hotel Card 1 */}
+            <div className="travel-card overflow-hidden">
+              <div className="h-48 overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&h=300&fit=crop"
+                  alt="Luxury Hotel Kathmandu"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="p-4">
+                <div className="flex justify-between items-start mb-2">
+                  <h3 className="font-semibold text-foreground">Hotel, Kathmandu</h3>
+                  <div className="text-right">
+                    <span className="text-2xl font-bold text-primary">$45</span>
+                    <span className="text-sm text-muted-foreground">/night</span>
+                  </div>
+                </div>
+                <div className="flex items-center mb-2">
+                  {[1,2,3,4].map(i => (
+                    <Star key={i} className="h-3 w-3 fill-sacred-gold text-sacred-gold" />
+                  ))}
+                  <Star className="h-3 w-3 text-gray-300" />
+                  <span className="text-sm text-muted-foreground ml-1">4</span>
+                </div>
+                <span className="text-xs text-muted-foreground">Rating</span>
+                <p className="text-sm text-muted-foreground mt-2 line-clamp-3">
+                  Far far away, behind the word mountains, far from the countries of comfort and luxury accommodations.
+                </p>
+                <Button className="w-full mt-3" size="sm">Book Now</Button>
+              </div>
+            </div>
+
+            {/* Hotel Card 2 */}
+            <div className="travel-card overflow-hidden">
+              <div className="h-48 overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=400&h=300&fit=crop"
+                  alt="Resort Pokhara"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="p-4">
+                <div className="flex justify-between items-start mb-2">
+                  <h3 className="font-semibold text-foreground">Resort, Pokhara</h3>
+                  <div className="text-right">
+                    <span className="text-2xl font-bold text-primary">$65</span>
+                    <span className="text-sm text-muted-foreground">/night</span>
+                  </div>
+                </div>
+                <div className="flex items-center mb-2">
+                  {[1,2,3,4,5].map(i => (
+                    <Star key={i} className="h-3 w-3 fill-sacred-gold text-sacred-gold" />
+                  ))}
+                  <span className="text-sm text-muted-foreground ml-1">5</span>
+                </div>
+                <span className="text-xs text-muted-foreground">Rating</span>
+                <p className="text-sm text-muted-foreground mt-2 line-clamp-3">
+                  Far far away, behind the word mountains, nestled by the serene lakes with mountain views.
+                </p>
+                <Button className="w-full mt-3" size="sm">Book Now</Button>
+              </div>
+            </div>
+
+            {/* Hotel Card 3 */}
+            <div className="travel-card overflow-hidden">
+              <div className="h-48 overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400&h=300&fit=crop"
+                  alt="Boutique Hotel Bhaktapur"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="p-4">
+                <div className="flex justify-between items-start mb-2">
+                  <h3 className="font-semibold text-foreground">Hotel, Bhaktapur</h3>
+                  <div className="text-right">
+                    <span className="text-2xl font-bold text-primary">$40</span>
+                    <span className="text-sm text-muted-foreground">/night</span>
+                  </div>
+                </div>
+                <div className="flex items-center mb-2">
+                  {[1,2,3,4].map(i => (
+                    <Star key={i} className="h-3 w-3 fill-sacred-gold text-sacred-gold" />
+                  ))}
+                  <Star className="h-3 w-3 text-gray-300" />
+                  <span className="text-sm text-muted-foreground ml-1">4</span>
+                </div>
+                <span className="text-xs text-muted-foreground">Rating</span>
+                <p className="text-sm text-muted-foreground mt-2 line-clamp-3">
+                  Far far away, behind the word mountains, in the heart of ancient cultural heritage sites.
+                </p>
+                <Button className="w-full mt-3" size="sm">Book Now</Button>
+              </div>
+            </div>
+
+            {/* Hotel Card 4 */}
+            <div className="travel-card overflow-hidden">
+              <div className="h-48 overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1561501900-3701fa6a0864?w=400&h=300&fit=crop"
+                  alt="Mountain Lodge Namche"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="p-4">
+                <div className="flex justify-between items-start mb-2">
+                  <h3 className="font-semibold text-foreground">Lodge, Namche</h3>
+                  <div className="text-right">
+                    <span className="text-2xl font-bold text-primary">$35</span>
+                    <span className="text-sm text-muted-foreground">/night</span>
+                  </div>
+                </div>
+                <div className="flex items-center mb-2">
+                  {[1,2,3,4].map(i => (
+                    <Star key={i} className="h-3 w-3 fill-sacred-gold text-sacred-gold" />
+                  ))}
+                  <Star className="h-3 w-3 text-gray-300" />
+                  <span className="text-sm text-muted-foreground ml-1">4</span>
+                </div>
+                <span className="text-xs text-muted-foreground">Rating</span>
+                <p className="text-sm text-muted-foreground mt-2 line-clamp-3">
+                  Far far away, behind the word mountains, at the gateway to Everest with stunning views.
+                </p>
+                <Button className="w-full mt-3" size="sm">Book Now</Button>
+              </div>
+            </div>
+
+            {/* Hotel Card 5 */}
+            <div className="travel-card overflow-hidden">
+              <div className="h-48 overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=400&h=300&fit=crop"
+                  alt="Heritage Hotel Patan"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="p-4">
+                <div className="flex justify-between items-start mb-2">
+                  <h3 className="font-semibold text-foreground">Hotel, Patan</h3>
+                  <div className="text-right">
+                    <span className="text-2xl font-bold text-primary">$50</span>
+                    <span className="text-sm text-muted-foreground">/night</span>
+                  </div>
+                </div>
+                <div className="flex items-center mb-2">
+                  {[1,2,3,4,5].map(i => (
+                    <Star key={i} className="h-3 w-3 fill-sacred-gold text-sacred-gold" />
+                  ))}
+                  <span className="text-sm text-muted-foreground ml-1">5</span>
+                </div>
+                <span className="text-xs text-muted-foreground">Rating</span>
+                <p className="text-sm text-muted-foreground mt-2 line-clamp-3">
+                  Far far away, behind the word mountains, experience traditional Newari architecture and hospitality.
+                </p>
+                <Button className="w-full mt-3" size="sm">Book Now</Button>
+              </div>
+            </div>
+          </div>
+          
+          <div className="text-center mt-12">
+            <Button variant="outline" size="lg">
+              View All Hotels
+            </Button>
+          </div>
+        </div>
+      </section>
+
       {/* Why Choose Us */}
       <section className="py-20 mountain-gradient">
         <div className="container mx-auto px-4">
