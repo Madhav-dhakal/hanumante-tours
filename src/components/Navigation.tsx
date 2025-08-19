@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Menu, X, Phone, Mail, Mountain } from 'lucide-react';
+import { Menu, X, Phone, Mail } from 'lucide-react';
+import hanumanteLogoImg from '@/assets/hanumante-logo.png';
 
 const navItems = [
   { name: 'Home', href: '/' },
@@ -55,9 +56,11 @@ export const Navigation = () => {
           <div className="flex items-center justify-between py-4">
             {/* Logo */}
             <div className="flex items-center space-x-2">
-              <div className="rounded-full bg-primary p-2">
-                <Mountain className="h-6 w-6 text-white" />
-              </div>
+              <img 
+                src={hanumanteLogoImg}
+                alt="Hanumante Adventures Logo" 
+                className="h-12 w-12 rounded-full object-cover"
+              />
               <div>
                 <h1 className="text-xl font-bold text-primary">Hanumante</h1>
                 <p className="text-xs text-muted-foreground">Adventures</p>
