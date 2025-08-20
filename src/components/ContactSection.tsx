@@ -125,9 +125,9 @@ export const ContactSection = () => {
                   <Clock className="h-6 w-6 text-muted-foreground" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-foreground">Business Hours</h4>
-                  <p className="text-muted-foreground">Mon-Fri: 9:00 AM - 6:00 PM</p>
-                  <p className="text-sm text-muted-foreground">Sat: 9:00 AM - 4:00 PM</p>
+                  <h4 className="font-semibold text-foreground">Office Hours</h4>
+                  <p className="text-muted-foreground">Sun-Fri: 10:00 AM - 5:00 PM</p>
+                  <p className="text-sm text-muted-foreground">Saturday: Holiday</p>
                 </div>
               </div>
             </div>

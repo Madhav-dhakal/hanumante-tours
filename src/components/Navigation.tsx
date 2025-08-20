@@ -137,14 +137,14 @@ export const Navigation = () => {
               <Button 
                 variant="outline" 
                 size="sm"
-                onClick={() => scrollToSection('plan-trip')}
+                onClick={() => window.location.href = '/plan-trip'}
               >
                 Plan Your Trip
               </Button>
               <Button 
                 className="bg-sacred-gold hover:bg-sacred-gold/90" 
                 size="sm"
-                onClick={() => scrollToSection('book-now')}
+                onClick={() => window.location.href = '/book-now'}
               >
                 Book Now
               </Button>
@@ -208,7 +208,7 @@ export const Navigation = () => {
                     variant="outline" 
                     size="sm"
                     onClick={() => {
-                      scrollToSection('plan-trip');
+                      window.location.href = '/plan-trip';
                       setIsOpen(false);
                     }}
                   >
@@ -218,7 +218,7 @@ export const Navigation = () => {
                     className="bg-sacred-gold hover:bg-sacred-gold/90" 
                     size="sm"
                     onClick={() => {
-                      scrollToSection('book-now');
+                      window.location.href = '/book-now';
                       setIsOpen(false);
                     }}
                   >
