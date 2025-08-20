@@ -81,7 +81,7 @@ const Blog = () => {
               Travel Insights
             </Badge>
             <h1 className="text-5xl font-bold mb-6">Travel Blog</h1>
-            <p className="text-xl text-white/90 mb-8">
+            <p className="text-xl text-white/95 mb-8">
               Expert insights, travel tips, and inspiring stories from the Himalayas and beyond.
             </p>
           </div>

@@ -119,7 +119,7 @@ const Tours = () => {
               Explore Destinations
             </Badge>
             <h1 className="text-5xl font-bold mb-6">Tours & Packages</h1>
-            <p className="text-xl text-white/90 mb-8">
+            <p className="text-xl text-white/95 mb-8">
               Discover our comprehensive collection of spiritual journeys, adventure treks, and cultural experiences across Nepal, Tibet, India, and beyond.
             </p>
           </div>

@@ -16,7 +16,7 @@ const About = () => {
               Our Story
             </Badge>
             <h1 className="text-5xl font-bold mb-6">About Hanumante Tours & Travels</h1>
-            <p className="text-xl text-white/90 mb-8">
+            <p className="text-xl text-white/95 mb-8">
               Transforming travel into sacred and adventurous journeys since 2008, connecting souls with the mystical beauty of the Himalayas.
             </p>
           </div>

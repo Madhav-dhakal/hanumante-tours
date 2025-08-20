@@ -106,7 +106,7 @@ const Gallery = () => {
               Visual Journey
             </Badge>
             <h1 className="text-5xl font-bold mb-6">Photo Gallery</h1>
-            <p className="text-xl text-white/90 mb-8">
+            <p className="text-xl text-white/95 mb-8">
               Explore the breathtaking beauty of our destinations through the eyes of fellow travelers and our expert guides.
             </p>
           </div>

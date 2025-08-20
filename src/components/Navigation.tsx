@@ -134,10 +134,18 @@ export const Navigation = () => {
 
             {/* CTA Buttons */}
             <div className="hidden md:flex items-center space-x-4">
-              <Button variant="outline" size="sm">
+              <Button 
+                variant="outline" 
+                size="sm"
+                onClick={() => scrollToSection('plan-trip')}
+              >
                 Plan Your Trip
               </Button>
-              <Button className="bg-sacred-gold hover:bg-sacred-gold/90" size="sm">
+              <Button 
+                className="bg-sacred-gold hover:bg-sacred-gold/90" 
+                size="sm"
+                onClick={() => scrollToSection('book-now')}
+              >
                 Book Now
               </Button>
             </div>
@@ -196,10 +204,24 @@ export const Navigation = () => {
                   )
                 ))}
                 <div className="pt-4 border-t flex flex-col space-y-2">
-                  <Button variant="outline" size="sm">
+                  <Button 
+                    variant="outline" 
+                    size="sm"
+                    onClick={() => {
+                      scrollToSection('plan-trip');
+                      setIsOpen(false);
+                    }}
+                  >
                     Plan Your Trip
                   </Button>
-                  <Button className="bg-sacred-gold hover:bg-sacred-gold/90" size="sm">
+                  <Button 
+                    className="bg-sacred-gold hover:bg-sacred-gold/90" 
+                    size="sm"
+                    onClick={() => {
+                      scrollToSection('book-now');
+                      setIsOpen(false);
+                    }}
+                  >
                     Book Now
                   </Button>
                 </div>
