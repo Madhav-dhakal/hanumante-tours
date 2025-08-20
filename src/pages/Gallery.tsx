@@ -101,12 +101,12 @@ const Gallery = () => {
       {/* Hero Section */}
       <section className="pt-32 pb-16 mountain-gradient">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center text-white">
-            <Badge className="mb-4 bg-white/20 text-white">
+          <div className="max-w-4xl mx-auto text-center text-foreground">
+            <Badge className="mb-4 bg-primary/20 text-foreground">
               Visual Journey
             </Badge>
             <h1 className="text-5xl font-bold mb-6">Photo Gallery</h1>
-            <p className="text-xl text-white/95 mb-8">
+            <p className="text-xl text-muted-foreground mb-8">
               Explore the breathtaking beauty of our destinations through the eyes of fellow travelers and our expert guides.
             </p>
           </div>

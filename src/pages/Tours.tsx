@@ -114,12 +114,12 @@ const Tours = () => {
       {/* Hero Section */}
       <section className="pt-32 pb-16 mountain-gradient">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center text-white">
-            <Badge className="mb-4 bg-white/20 text-white">
+          <div className="max-w-4xl mx-auto text-center text-foreground">
+            <Badge className="mb-4 bg-primary/20 text-foreground">
               Explore Destinations
             </Badge>
             <h1 className="text-5xl font-bold mb-6">Tours & Packages</h1>
-            <p className="text-xl text-white/95 mb-8">
+            <p className="text-xl text-muted-foreground mb-8">
               Discover our comprehensive collection of spiritual journeys, adventure treks, and cultural experiences across Nepal, Tibet, India, and beyond.
             </p>
           </div>
