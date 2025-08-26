@@ -4,6 +4,7 @@ import { TourCard } from '@/components/TourCard';
 import { ContactSection } from '@/components/ContactSection';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { useNavigate } from 'react-router-dom';
 import { Star, Users, Award, Shield, Heart, Phone, Mail, MapPin, Facebook, Instagram, Youtube, Mountain, Compass, Camera, Globe } from 'lucide-react';
 
 // Import tour images
@@ -118,6 +119,24 @@ const testimonials = [
 ];
 
 const Index = () => {
+  const navigate = useNavigate();
+
+  const handleViewDetails = (tourTitle: string) => {
+    navigate('/tours', { state: { selectedTour: tourTitle } });
+  };
+
+  const handleBookNow = (tourTitle: string) => {
+    navigate('/book-now', { state: { selectedTour: tourTitle } });
+  };
+
+  const handleViewAllTours = () => {
+    navigate('/tours');
+  };
+
+  const handleHotelBooking = (hotelName: string) => {
+    navigate('/book-now', { state: { selectedHotel: hotelName } });
+  };
+
   return (
     <div className="min-h-screen bg-background" id="top">
       <Navigation />
@@ -177,7 +196,7 @@ const Index = () => {
           </div>
           
           <div className="text-center mt-12">
-            <Button variant="outline" size="lg" className="mr-4">
+            <Button variant="outline" size="lg" className="mr-4" onClick={handleViewAllTours}>
               View All Tours
             </Button>
             <Button className="bg-sacred-gold hover:bg-sacred-gold/90" size="lg">
@@ -205,7 +224,7 @@ const Index = () => {
             <div className="travel-card overflow-hidden">
               <div className="h-48 overflow-hidden">
                 <img
-                  src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&h=300&fit=crop"
+                  src="/lovable-uploads/7c6b9e0f-3879-424b-a6f0-dab276fa9e76.png"
                   alt="Luxury Hotel Kathmandu"
                   className="w-full h-full object-cover"
                 />
@@ -229,7 +248,7 @@ const Index = () => {
                 <p className="text-sm text-muted-foreground mt-2 line-clamp-3">
                   Far far away, behind the word mountains, far from the countries of comfort and luxury accommodations.
                 </p>
-                <Button className="w-full mt-3" size="sm">Book Now</Button>
+                <Button className="w-full mt-3" size="sm" onClick={() => handleHotelBooking('Hotel Kathmandu')}>Book Now</Button>
               </div>
             </div>
 
@@ -237,7 +256,7 @@ const Index = () => {
             <div className="travel-card overflow-hidden">
               <div className="h-48 overflow-hidden">
                 <img
-                  src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=400&h=300&fit=crop"
+                  src="/lovable-uploads/1f713977-e7d3-457e-994a-54dc53d25a8a.png"
                   alt="Resort Pokhara"
                   className="w-full h-full object-cover"
                 />
@@ -260,7 +279,7 @@ const Index = () => {
                 <p className="text-sm text-muted-foreground mt-2 line-clamp-3">
                   Far far away, behind the word mountains, nestled by the serene lakes with mountain views.
                 </p>
-                <Button className="w-full mt-3" size="sm">Book Now</Button>
+                <Button className="w-full mt-3" size="sm" onClick={() => handleHotelBooking('Resort Pokhara')}>Book Now</Button>
               </div>
             </div>
 
@@ -292,7 +311,7 @@ const Index = () => {
                 <p className="text-sm text-muted-foreground mt-2 line-clamp-3">
                   Far far away, behind the word mountains, in the heart of ancient cultural heritage sites.
                 </p>
-                <Button className="w-full mt-3" size="sm">Book Now</Button>
+                <Button className="w-full mt-3" size="sm" onClick={() => handleHotelBooking('Hotel Bhaktapur')}>Book Now</Button>
               </div>
             </div>
 
@@ -324,7 +343,7 @@ const Index = () => {
                 <p className="text-sm text-muted-foreground mt-2 line-clamp-3">
                   Far far away, behind the word mountains, at the gateway to Everest with stunning views.
                 </p>
-                <Button className="w-full mt-3" size="sm">Book Now</Button>
+                <Button className="w-full mt-3" size="sm" onClick={() => handleHotelBooking('Lodge Namche')}>Book Now</Button>
               </div>
             </div>
 
@@ -332,7 +351,7 @@ const Index = () => {
             <div className="travel-card overflow-hidden">
               <div className="h-48 overflow-hidden">
                 <img
-                  src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=400&h=300&fit=crop"
+                  src="/lovable-uploads/069b54c9-25c0-49cd-9cc2-ac00dc080bf7.png"
                   alt="Heritage Hotel Patan"
                   className="w-full h-full object-cover"
                 />
@@ -355,7 +374,7 @@ const Index = () => {
                 <p className="text-sm text-muted-foreground mt-2 line-clamp-3">
                   Far far away, behind the word mountains, experience traditional Newari architecture and hospitality.
                 </p>
-                <Button className="w-full mt-3" size="sm">Book Now</Button>
+                <Button className="w-full mt-3" size="sm" onClick={() => handleHotelBooking('Hotel Patan')}>Book Now</Button>
               </div>
             </div>
           </div>

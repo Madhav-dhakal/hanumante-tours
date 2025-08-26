@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Calendar, Clock, Users, MapPin, Star } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 interface TourCardProps {
   title: string;
@@ -39,6 +40,16 @@ export const TourCard: React.FC<TourCardProps> = ({
   category,
   featured = false
 }) => {
+  const navigate = useNavigate();
+
+  const handleViewDetails = () => {
+    navigate('/tours', { state: { selectedTour: title } });
+  };
+
+  const handleBookNow = () => {
+    navigate('/book-now', { state: { selectedTour: title } });
+  };
+
   return (
     <div className={`travel-card group relative overflow-hidden ${featured ? 'md:col-span-1 md:row-span-1' : ''}`}>
       {/* Featured Badge */}
@@ -112,12 +123,14 @@ export const TourCard: React.FC<TourCardProps> = ({
             variant="outline" 
             size="sm"
             className="flex-1 hover:border-primary hover:text-primary"
+            onClick={handleViewDetails}
           >
             View Details
           </Button>
           <Button 
             size="sm"
             className="flex-1 bg-primary hover:bg-primary-dark"
+            onClick={handleBookNow}
           >
             Book Now
           </Button>
