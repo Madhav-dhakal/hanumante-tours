@@ -70,7 +70,7 @@ const featuredTours = [
   },
   {
     title: "Pashupatinath Darshan",
-    image: pashupatinath,
+    image: "/lovable-uploads/c02b8e2c-2f08-44ed-ad5b-d6fc4d75d5e2.png",
     duration: "3 Days",
     groupSize: "15-20 People",
     price: "$299",
@@ -80,7 +80,7 @@ const featuredTours = [
   },
   {
     title: "Annapurna Base Camp",
-    image: annapurnaBaseCamp,
+    image: "/lovable-uploads/a85aaa6e-1398-4c6e-860d-25814801247e.png",
     duration: "12 Days",
     groupSize: "10-14 People",
     price: "$999",
