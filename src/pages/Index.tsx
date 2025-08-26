@@ -40,7 +40,7 @@ const featuredTours = [
   },
   {
     title: "Everest Base Camp Trek",
-    image: everestBaseCamp,
+    image: "/lovable-uploads/9ac76760-26c2-4f14-99cb-49caa194c195.png",
     duration: "14 Days",
     groupSize: "8-12 People",
     price: "$1,299",
@@ -50,7 +50,7 @@ const featuredTours = [
   },
   {
     title: "Thailand Paradise Package",
-    image: thailandBeach,
+    image: "/lovable-uploads/11e48830-2563-44a8-b0a9-23ba5a900b71.png",
     duration: "6 Days",
     groupSize: "Family Friendly",
     price: "$799",
@@ -60,7 +60,7 @@ const featuredTours = [
   },
   {
     title: "Gosainkunda Heli Tour",
-    image: helicopterTour,
+    image: "/lovable-uploads/736eaddc-be69-4f4d-8657-44ea9885bcb7.png",
     duration: "1 Day",
     groupSize: "4-6 People",
     price: "$399",
