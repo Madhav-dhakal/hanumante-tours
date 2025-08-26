@@ -103,7 +103,11 @@ export const ContactSection = () => {
                   <h4 className="font-semibold text-foreground">WhatsApp</h4>
                   <p className="text-muted-foreground">+977 9842290039 / 9842290280</p>
                 </div>
-                <Button size="sm" className="bg-green-500 hover:bg-green-600 text-white">
+                <Button 
+                  size="sm" 
+                  className="bg-green-500 hover:bg-green-600 text-white"
+                  onClick={() => window.open('https://wa.me/9779842290039', '_blank')}
+                >
                   Chat Now
                 </Button>
               </div>
@@ -134,11 +138,18 @@ export const ContactSection = () => {
 
             {/* Quick Action Buttons */}
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
-              <Button className="bg-green-500 hover:bg-green-600 text-white flex-1">
+              <Button 
+                className="bg-green-500 hover:bg-green-600 text-white flex-1"
+                onClick={() => window.open('https://wa.me/9779842290039', '_blank')}
+              >
                 <MessageCircle className="mr-2 h-4 w-4" />
                 WhatsApp Chat
               </Button>
-              <Button variant="outline" className="flex-1">
+              <Button 
+                variant="outline" 
+                className="flex-1"
+                onClick={() => window.open('tel:+9779842290039', '_self')}
+              >
                 <Phone className="mr-2 h-4 w-4" />
                 Call Now
               </Button>

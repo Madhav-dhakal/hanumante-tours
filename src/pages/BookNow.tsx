@@ -16,8 +16,8 @@ const BookNow = () => {
             <Badge className="mb-4 bg-white/20 text-white">
               Instant Booking
             </Badge>
-            <h1 className="text-5xl font-bold mb-6">Book Your Adventure Today</h1>
-            <p className="text-xl text-white/90 mb-8">
+            <h1 className="text-5xl font-bold mb-6 text-black">Book Your Adventure Today</h1>
+            <p className="text-xl text-black/90 mb-8">
               Ready to embark on your journey? Secure your spot with our easy booking process and flexible payment options.
             </p>
           </div>
