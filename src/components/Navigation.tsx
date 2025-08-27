@@ -10,12 +10,36 @@ const navItems = [
     name: 'Tours & Packages', 
     href: '/tours',
     dropdown: [
-      'Nepal Spiritual Tours',
-      'Nepal Trekking',
-      'India Pilgrimage',
-      'Tibet - Mansarovar',
-      'International Packages',
-      'Helicopter Tours'
+      {
+        name: 'Nepal Spiritual Tours',
+        image: '/lovable-uploads/c02b8e2c-2f08-44ed-ad5b-d6fc4d75d5e2.png',
+        description: 'Sacred pilgrimages & temple visits',
+        tourId: 'pashupatinath-darshan'
+      },
+      {
+        name: 'Nepal Trekking',
+        image: '/lovable-uploads/a85aaa6e-1398-4c6e-860d-25814801247e.png',
+        description: 'Adventure treks in the Himalayas',
+        tourId: 'annapurna-base-camp'
+      },
+      {
+        name: 'Tibet - Mansarovar',
+        image: '/lovable-uploads/79fe9603-3a91-4169-bac4-3fceb2219bdd.png',
+        description: 'Mount Kailash spiritual journey',
+        tourId: 'mansarovar-yatra'
+      },
+      {
+        name: 'International Packages',
+        image: '/lovable-uploads/11e48830-2563-44a8-b0a9-23ba5a900b71.png',
+        description: 'Global travel destinations',
+        tourId: 'thailand-paradise-package'
+      },
+      {
+        name: 'Helicopter Tours',
+        image: '/lovable-uploads/736eaddc-be69-4f4d-8657-44ea9885bcb7.png',
+        description: 'Scenic helicopter rides',
+        tourId: 'gosainkunda-heli-tour'
+      }
     ]
   },
   { name: 'Gallery', href: '/gallery' },
@@ -114,15 +138,36 @@ export const Navigation = () => {
                   )}
                   
                   {item.dropdown && activeDropdown === item.name && (
-                    <div className="absolute left-0 top-full mt-2 w-64 rounded-lg bg-white shadow-travel border z-50">
+                    <div className="absolute left-0 top-full mt-2 w-80 rounded-lg bg-white shadow-travel border z-50">
                       <div className="py-2">
                         {item.dropdown.map((subItem) => (
                           <Link
-                            key={subItem}
-                            to="/tours"
-                            className="block px-4 py-2 text-sm hover:bg-accent hover:text-primary transition-smooth"
+                            key={typeof subItem === 'string' ? subItem : subItem.name}
+                            to={`/tours?tour=${typeof subItem === 'string' ? subItem : subItem.tourId}`}
+                            className="flex items-center px-4 py-3 hover:bg-accent transition-smooth group"
                           >
-                            {subItem}
+                            {typeof subItem === 'object' && (
+                              <>
+                                <div className="w-16 h-12 rounded-md overflow-hidden mr-3 flex-shrink-0">
+                                  <img
+                                    src={subItem.image}
+                                    alt={subItem.name}
+                                    className="w-full h-full object-cover group-hover:scale-105 transition-smooth"
+                                  />
+                                </div>
+                                <div className="flex-1">
+                                  <h4 className="text-sm font-medium text-foreground group-hover:text-primary">
+                                    {subItem.name}
+                                  </h4>
+                                  <p className="text-xs text-muted-foreground">
+                                    {subItem.description}
+                                  </p>
+                                </div>
+                              </>
+                            )}
+                            {typeof subItem === 'string' && (
+                              <span className="text-sm">{subItem}</span>
+                            )}
                           </Link>
                         ))}
                       </div>

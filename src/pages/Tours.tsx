@@ -3,7 +3,8 @@ import { TourCard } from '@/components/TourCard';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Filter, Search } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
 // Import tour images
 import muktinathTemple from '@/assets/muktinath-temple.jpg';
@@ -38,7 +39,7 @@ const allTours = [
   },
   {
     title: "Everest Base Camp Trek",
-    image: everestBaseCamp,
+    image: "/lovable-uploads/9ac76760-26c2-4f14-99cb-49caa194c195.png",
     duration: "14 Days",
     groupSize: "8-12 People",
     price: "$1,299",
@@ -48,7 +49,7 @@ const allTours = [
   },
   {
     title: "Thailand Paradise Package",
-    image: thailandBeach,
+    image: "/lovable-uploads/11e48830-2563-44a8-b0a9-23ba5a900b71.png",
     duration: "6 Days",
     groupSize: "Family Friendly",
     price: "$799",
@@ -58,7 +59,7 @@ const allTours = [
   },
   {
     title: "Gosainkunda Heli Tour",
-    image: helicopterTour,
+    image: "/lovable-uploads/736eaddc-be69-4f4d-8657-44ea9885bcb7.png",
     duration: "1 Day",
     groupSize: "4-6 People",
     price: "$399",
@@ -68,7 +69,7 @@ const allTours = [
   },
   {
     title: "Pashupatinath Darshan",
-    image: pashupatinath,
+    image: "/lovable-uploads/c02b8e2c-2f08-44ed-ad5b-d6fc4d75d5e2.png",
     duration: "3 Days",
     groupSize: "15-20 People",
     price: "$299",
@@ -78,7 +79,7 @@ const allTours = [
   },
   {
     title: "Annapurna Base Camp",
-    image: annapurnaBaseCamp,
+    image: "/lovable-uploads/a85aaa6e-1398-4c6e-860d-25814801247e.png",
     duration: "12 Days",
     groupSize: "10-14 People",
     price: "$999",
@@ -91,6 +92,26 @@ const allTours = [
 const Tours = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [searchTerm, setSearchTerm] = useState('');
+  const [searchParams] = useSearchParams();
+  
+  useEffect(() => {
+    const tourParam = searchParams.get('tour');
+    if (tourParam) {
+      // Map tour IDs to search terms or categories
+      const tourMapping: { [key: string]: string } = {
+        'pashupatinath-darshan': 'Pashupatinath Darshan',
+        'annapurna-base-camp': 'Annapurna Base Camp',
+        'mansarovar-yatra': 'Mansarovar Yatra',
+        'thailand-paradise-package': 'Thailand Paradise',
+        'gosainkunda-heli-tour': 'Gosainkunda Heli'
+      };
+      
+      const searchFor = tourMapping[tourParam];
+      if (searchFor) {
+        setSearchTerm(searchFor);
+      }
+    }
+  }, [searchParams]);
 
   const categories = [
     { value: 'all', label: 'All Tours' },
