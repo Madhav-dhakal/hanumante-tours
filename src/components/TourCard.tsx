@@ -43,7 +43,8 @@ export const TourCard: React.FC<TourCardProps> = ({
   const navigate = useNavigate();
 
   const handleViewDetails = () => {
-    navigate('/tours', { state: { selectedTour: title } });
+    const tourId = title.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
+    navigate(`/tour/${tourId}`);
   };
 
   const handleBookNow = () => {
