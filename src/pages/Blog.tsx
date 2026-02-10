@@ -2,6 +2,7 @@ import { Navigation } from '@/components/Navigation';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Calendar, User, ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const blogPosts = [
   {
@@ -67,6 +68,7 @@ const blogPosts = [
 ];
 
 const Blog = () => {
+  const navigate = useNavigate();
   const categories = ['All', 'Trekking', 'Pilgrimage', 'Helicopter Tours', 'Culture'];
 
   return (
@@ -112,7 +114,7 @@ const Blog = () => {
                   <span className="mr-4">{new Date(blogPosts[0].date).toLocaleDateString()}</span>
                   <span>{blogPosts[0].readTime}</span>
                 </div>
-                <Button className="bg-primary hover:bg-primary-dark">
+                <Button className="bg-primary hover:bg-primary-dark" onClick={() => navigate('/blog/everest-base-camp-guide')}>
                   Read Full Article
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
