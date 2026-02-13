@@ -151,7 +151,7 @@ const Blog = () => {
                       <span className="mr-3">{new Date(post.date).toLocaleDateString()}</span>
                       <span>{post.readTime}</span>
                     </div>
-                    <Button variant="outline" size="sm" className="w-full">
+                    <Button variant="outline" size="sm" className="w-full" onClick={() => navigate(`/blog/${post.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`)}>
                       Read More
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
