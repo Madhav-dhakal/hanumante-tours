@@ -5,8 +5,12 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Compass, Shield, Heart, Calendar, Users, MapPin, Plane, Loader2 } from 'lucide-react';
 import { useState } from 'react';
-import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
+import emailjs from '@emailjs/browser';
+
+const SERVICE_ID = 'service_bxhh9y9';
+const TEMPLATE_ID = 'template_6b80kvt';
+const PUBLIC_KEY = 'SKK-j_L6kTksVR6qH';
 
 const PlanTrip = () => {
   const { toast } = useToast();
@@ -48,11 +52,50 @@ const PlanTrip = () => {
 
     setIsSubmitting(true);
     try {
-      const { data, error } = await supabase.functions.invoke('send-trip-request', {
-        body: formData,
-      });
+      const templateParams = {
+        from_name: formData.fullName,
+        from_email: formData.email,
+        phone: formData.phone,
+        country: formData.country || 'Not specified',
+        travel_date: formData.travelDate || 'Flexible',
+        travelers: formData.travelers || 'Not specified',
+        duration: formData.duration || 'Not specified',
+        destinations: formData.destinations || 'Not specified',
+        budget: formData.budget || 'Not specified',
+        trip_types: formData.tripTypes.length > 0 ? formData.tripTypes.join(', ') : 'Not specified',
+        special_requirements: formData.specialRequirements || 'None',
+        to_email: 'hanumantetours@gmail.com',
+        message: `
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🏔️ NEW TRIP PLANNING REQUEST
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-      if (error) throw error;
+👤 CONTACT INFORMATION
+• Full Name: ${formData.fullName}
+• Email: ${formData.email}
+• Phone: ${formData.phone}
+• Country: ${formData.country || 'Not specified'}
+
+✈️ TRIP DETAILS
+• Preferred Travel Date: ${formData.travelDate || 'Flexible'}
+• Number of Travelers: ${formData.travelers || 'Not specified'}
+• Duration: ${formData.duration || 'Not specified'}
+• Preferred Destinations: ${formData.destinations || 'Not specified'}
+• Budget Range: ${formData.budget || 'Not specified'}
+
+🎯 TRIP TYPE
+• ${formData.tripTypes.length > 0 ? formData.tripTypes.join(', ') : 'Not specified'}
+
+📝 SPECIAL REQUIREMENTS
+${formData.specialRequirements || 'None'}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Submitted via Hanumante Tours & Travels Website
+Please respond within 24 hours.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
+      };
+
+      await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY);
 
       toast({ title: "Request Sent! ✈️", description: "Our team will review your request and get back to you within 24 hours." });
       setFormData({
@@ -61,7 +104,7 @@ const PlanTrip = () => {
         tripTypes: [], specialRequirements: '',
       });
     } catch (err: any) {
-      console.error('Submission error:', err);
+      console.error('EmailJS error:', err);
       toast({ title: "Submission Failed", description: "Something went wrong. Please try again or contact us directly.", variant: "destructive" });
     } finally {
       setIsSubmitting(false);
