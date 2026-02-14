@@ -3,9 +3,71 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Compass, Shield, Heart, Calendar, Users, MapPin, Plane } from 'lucide-react';
+import { Compass, Shield, Heart, Calendar, Users, MapPin, Plane, Loader2 } from 'lucide-react';
+import { useState } from 'react';
+import { supabase } from '@/integrations/supabase/client';
+import { useToast } from '@/hooks/use-toast';
 
 const PlanTrip = () => {
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    fullName: '',
+    email: '',
+    phone: '',
+    country: '',
+    travelDate: '',
+    travelers: '',
+    duration: '',
+    destinations: '',
+    budget: '',
+    tripTypes: [] as string[],
+    specialRequirements: '',
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleCheckbox = (type: string, checked: boolean) => {
+    setFormData(prev => ({
+      ...prev,
+      tripTypes: checked
+        ? [...prev.tripTypes, type]
+        : prev.tripTypes.filter(t => t !== type),
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!formData.fullName.trim() || !formData.email.trim() || !formData.phone.trim()) {
+      toast({ title: "Missing Information", description: "Please fill in your name, email, and phone number.", variant: "destructive" });
+      return;
+    }
+
+    setIsSubmitting(true);
+    try {
+      const { data, error } = await supabase.functions.invoke('send-trip-request', {
+        body: formData,
+      });
+
+      if (error) throw error;
+
+      toast({ title: "Request Sent! ✈️", description: "Our team will review your request and get back to you within 24 hours." });
+      setFormData({
+        fullName: '', email: '', phone: '', country: '', travelDate: '',
+        travelers: '', duration: '', destinations: '', budget: '',
+        tripTypes: [], specialRequirements: '',
+      });
+    } catch (err: any) {
+      console.error('Submission error:', err);
+      toast({ title: "Submission Failed", description: "Something went wrong. Please try again or contact us directly.", variant: "destructive" });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -78,26 +140,26 @@ const PlanTrip = () => {
             </div>
 
             <div className="travel-card p-8">
-              <form className="space-y-6">
+              <form className="space-y-6" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-medium mb-2">Full Name</label>
-                    <Input placeholder="Enter your full name" />
+                    <label className="block text-sm font-medium mb-2">Full Name *</label>
+                    <Input name="fullName" value={formData.fullName} onChange={handleChange} placeholder="Enter your full name" required />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-2">Email Address</label>
-                    <Input type="email" placeholder="Enter your email" />
+                    <label className="block text-sm font-medium mb-2">Email Address *</label>
+                    <Input name="email" type="email" value={formData.email} onChange={handleChange} placeholder="Enter your email" required />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-medium mb-2">Phone Number</label>
-                    <Input placeholder="Enter your phone number" />
+                    <label className="block text-sm font-medium mb-2">Phone Number *</label>
+                    <Input name="phone" value={formData.phone} onChange={handleChange} placeholder="Enter your phone number" required />
                   </div>
                   <div>
                     <label className="block text-sm font-medium mb-2">Country</label>
-                    <Input placeholder="Enter your country" />
+                    <Input name="country" value={formData.country} onChange={handleChange} placeholder="Enter your country" />
                   </div>
                 </div>
 
@@ -107,18 +169,18 @@ const PlanTrip = () => {
                       <Calendar className="h-4 w-4 inline mr-1" />
                       Preferred Travel Date
                     </label>
-                    <Input type="date" />
+                    <Input name="travelDate" type="date" value={formData.travelDate} onChange={handleChange} />
                   </div>
                   <div>
                     <label className="block text-sm font-medium mb-2">
                       <Users className="h-4 w-4 inline mr-1" />
                       Number of Travelers
                     </label>
-                    <Input type="number" placeholder="2" min="1" />
+                    <Input name="travelers" type="number" value={formData.travelers} onChange={handleChange} placeholder="2" min="1" />
                   </div>
                   <div>
                     <label className="block text-sm font-medium mb-2">Duration</label>
-                    <Input placeholder="e.g., 7 days" />
+                    <Input name="duration" value={formData.duration} onChange={handleChange} placeholder="e.g., 7 days" />
                   </div>
                 </div>
 
@@ -127,53 +189,54 @@ const PlanTrip = () => {
                     <MapPin className="h-4 w-4 inline mr-1" />
                     Preferred Destinations
                   </label>
-                  <Input placeholder="e.g., Nepal, Tibet, India" />
+                  <Input name="destinations" value={formData.destinations} onChange={handleChange} placeholder="e.g., Nepal, Tibet, India" />
                 </div>
 
                 <div>
                   <label className="block text-sm font-medium mb-2">Budget Range (USD)</label>
-                  <select className="w-full p-3 border rounded-lg">
-                    <option>Select budget range</option>
-                    <option>$500 - $1,000</option>
-                    <option>$1,000 - $2,000</option>
-                    <option>$2,000 - $5,000</option>
-                    <option>$5,000+</option>
+                  <select name="budget" value={formData.budget} onChange={handleChange} className="w-full p-3 border rounded-lg bg-background">
+                    <option value="">Select budget range</option>
+                    <option value="$500 - $1,000">$500 - $1,000</option>
+                    <option value="$1,000 - $2,000">$1,000 - $2,000</option>
+                    <option value="$2,000 - $5,000">$2,000 - $5,000</option>
+                    <option value="$5,000+">$5,000+</option>
                   </select>
                 </div>
 
                 <div>
                   <label className="block text-sm font-medium mb-2">Trip Type</label>
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <label className="flex items-center space-x-2">
-                      <input type="checkbox" className="rounded" />
-                      <span>Pilgrimage</span>
-                    </label>
-                    <label className="flex items-center space-x-2">
-                      <input type="checkbox" className="rounded" />
-                      <span>Trekking</span>
-                    </label>
-                    <label className="flex items-center space-x-2">
-                      <input type="checkbox" className="rounded" />
-                      <span>Cultural Tours</span>
-                    </label>
-                    <label className="flex items-center space-x-2">
-                      <input type="checkbox" className="rounded" />
-                      <span>Adventure</span>
-                    </label>
+                    {['Pilgrimage', 'Trekking', 'Cultural Tours', 'Adventure'].map(type => (
+                      <label key={type} className="flex items-center space-x-2">
+                        <input
+                          type="checkbox"
+                          className="rounded"
+                          checked={formData.tripTypes.includes(type)}
+                          onChange={(e) => handleCheckbox(type, e.target.checked)}
+                        />
+                        <span>{type}</span>
+                      </label>
+                    ))}
                   </div>
                 </div>
 
                 <div>
                   <label className="block text-sm font-medium mb-2">Special Requirements or Preferences</label>
                   <Textarea 
+                    name="specialRequirements"
+                    value={formData.specialRequirements}
+                    onChange={handleChange}
                     placeholder="Tell us about any special requirements, dietary restrictions, accessibility needs, or specific interests..."
                     className="min-h-[120px]"
                   />
                 </div>
 
-                <Button className="w-full bg-primary hover:bg-primary-dark" size="lg">
-                  <Plane className="mr-2 h-4 w-4" />
-                  Submit Trip Planning Request
+                <Button className="w-full bg-primary hover:bg-primary-dark" size="lg" type="submit" disabled={isSubmitting}>
+                  {isSubmitting ? (
+                    <><Loader2 className="mr-2 h-4 w-4 animate-spin" /> Sending Request...</>
+                  ) : (
+                    <><Plane className="mr-2 h-4 w-4" /> Submit Trip Planning Request</>
+                  )}
                 </Button>
               </form>
             </div>
