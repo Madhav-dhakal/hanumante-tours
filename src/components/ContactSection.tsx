@@ -123,7 +123,7 @@ export const ContactSection = () => {
                 <Button 
                   size="sm" 
                   className="bg-green-500 hover:bg-green-600 text-white"
-                  onClick={() => window.open('https://wa.me/9779842290039', '_blank')}
+                onClick={() => window.open('https://wa.me/9779842290039?text=Hello%20Hanumante%20Tours%2C%20I%20would%20like%20to%20inquire%20about%20your%20travel%20packages.', '_blank')}
                 >
                   Chat Now
                 </Button>
@@ -157,7 +157,7 @@ export const ContactSection = () => {
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
               <Button 
                 className="bg-green-500 hover:bg-green-600 text-white flex-1"
-                onClick={() => window.open('https://wa.me/9779842290039', '_blank')}
+                onClick={() => window.open('https://wa.me/9779842290039?text=Hello%20Hanumante%20Tours%2C%20I%20would%20like%20to%20inquire%20about%20your%20travel%20packages.', '_blank')}
               >
                 <MessageCircle className="mr-2 h-4 w-4" />
                 WhatsApp Chat
