@@ -1,3 +1,4 @@
+import emailjs from '@emailjs/browser';
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -35,10 +36,26 @@ export const ContactSection = () => {
     },
   });
 
-  const onSubmit = (data: ContactFormData) => {
-    console.log("Contact form data:", data);
-    toast.success("Message sent successfully! We'll get back to you soon.");
-    form.reset();
+  const onSubmit = async (data: ContactFormData) => {
+    try {
+      await emailjs.send(
+        'service_n4zhrmj',
+        'template_je3ivxa',
+        {
+          from_name: data.name,
+          from_email: data.email,
+          subject: data.subject,
+          message: data.message,
+          to_email: 'hanumantetours@gmail.com',
+        },
+        'nd19tv1YAclEo4UNp'
+      );
+      toast.success("Message sent successfully! We'll get back to you soon.");
+      form.reset();
+    } catch (error) {
+      console.error("EmailJS error:", error);
+      toast.error("Failed to send message. Please try again or contact us directly.");
+    }
   };
 
   return (
