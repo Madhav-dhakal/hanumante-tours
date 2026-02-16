@@ -40,7 +40,7 @@ export const ContactSection = () => {
     try {
       await emailjs.send(
         'service_n4zhrmj',
-        'template_je3ivxa',
+        'template_ts7bq3d',
         {
           from_name: data.name,
           from_email: data.email,
