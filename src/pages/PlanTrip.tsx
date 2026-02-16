@@ -8,9 +8,9 @@ import { useState } from 'react';
 import { useToast } from '@/hooks/use-toast';
 import emailjs from '@emailjs/browser';
 
-const SERVICE_ID = 'service_bxhh9y9';
-const TEMPLATE_ID = 'template_6b80kvt';
-const PUBLIC_KEY = 'SKK-j_L6kTksVR6qH';
+const SERVICE_ID = 'service_n4zhrmj';
+const TEMPLATE_ID = 'template_je3ivxa';
+const PUBLIC_KEY = 'nd19tv1YAclEo4UNp';
 
 const PlanTrip = () => {
   const { toast } = useToast();
