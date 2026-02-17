@@ -6,6 +6,7 @@ import annapurnaBaseCamp from '@/assets/annapurna-base-camp.jpg';
 import pashupatinath from '@/assets/pashupatinath.jpg';
 import helicopterTour from '@/assets/helicopter-tour.jpg';
 import muktinathTemple from '@/assets/muktinath-temple.jpg';
+import mansarovar from '@/assets/mansarovar.png';
 import heroTrekking from '@/assets/hero-trekking.jpg';
 
 export interface ArticleData {
@@ -480,7 +481,7 @@ export const articles: Record<string, ArticleData> = {
     date: "2023-12-15",
     category: "Pilgrimage",
     readTime: "6 min read",
-    heroImage: muktinathTemple,
+    heroImage: mansarovar,
     ctaTitle: "Plan Your Mansarovar Yatra",
     ctaDescription: "Join our guided pilgrimage to the sacred Lake Mansarovar.",
     content: (
