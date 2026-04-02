@@ -179,19 +179,11 @@ export const Navigation = () => {
 
             {/* CTA Buttons */}
             <div className="hidden md:flex items-center space-x-4">
-              <Button 
-                variant="outline" 
-                size="sm"
-                onClick={() => window.location.href = '/plan-trip'}
-              >
-                Plan Your Trip
+              <Button variant="outline" size="sm" asChild>
+                <Link to="/plan-trip">Plan Your Trip</Link>
               </Button>
-              <Button 
-                className="bg-sacred-gold hover:bg-sacred-gold/90" 
-                size="sm"
-                onClick={() => window.location.href = '/book-now'}
-              >
-                Book Now
+              <Button className="bg-sacred-gold hover:bg-sacred-gold/90" size="sm" asChild>
+                <Link to="/book-now">Book Now</Link>
               </Button>
             </div>
 
@@ -249,25 +241,11 @@ export const Navigation = () => {
                   )
                 ))}
                 <div className="pt-4 border-t flex flex-col space-y-2">
-                  <Button 
-                    variant="outline" 
-                    size="sm"
-                    onClick={() => {
-                      window.location.href = '/plan-trip';
-                      setIsOpen(false);
-                    }}
-                  >
-                    Plan Your Trip
+                  <Button variant="outline" size="sm" asChild>
+                    <Link to="/plan-trip" onClick={() => setIsOpen(false)}>Plan Your Trip</Link>
                   </Button>
-                  <Button 
-                    className="bg-sacred-gold hover:bg-sacred-gold/90" 
-                    size="sm"
-                    onClick={() => {
-                      window.location.href = '/book-now';
-                      setIsOpen(false);
-                    }}
-                  >
-                    Book Now
+                  <Button className="bg-sacred-gold hover:bg-sacred-gold/90" size="sm" asChild>
+                    <Link to="/book-now" onClick={() => setIsOpen(false)}>Book Now</Link>
                   </Button>
                 </div>
               </div>

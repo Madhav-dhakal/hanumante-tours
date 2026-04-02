@@ -2,7 +2,7 @@ import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
-import { MapPin } from "lucide-react";
+
 
 const NotFound = () => {
   const location = useLocation();
@@ -19,8 +19,12 @@ const NotFound = () => {
       <Navigation />
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center px-4">
-          <div className="w-20 h-20 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-6">
-            <MapPin className="h-10 w-10 text-primary" />
+          <div className="w-24 h-24 mx-auto mb-6">
+            <img 
+              src="/lovable-uploads/2df12698-9722-4578-8439-376d7f8dfa62.png"
+              alt="Hanumante Tours & Travels Logo" 
+              className="w-full h-full object-contain"
+            />
           </div>
           <h1 className="text-6xl font-bold text-primary mb-4">404</h1>
           <p className="text-2xl font-semibold text-foreground mb-2">Trail Not Found</p>
