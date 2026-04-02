@@ -2,7 +2,7 @@ import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
-import { MapPin } from "lucide-react";
+
 
 const NotFound = () => {
   const location = useLocation();
